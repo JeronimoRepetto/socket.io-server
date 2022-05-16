@@ -12,4 +12,10 @@ io.on('connection', client => {
 
         io.emit( 'mensaje' , { admin: 'Nuevo mensaje'});
     });
+
+    client.on('emitir-mensaje', ( payload ) =>{
+        //console.log(payload);
+        //io.emit('nuevo-mensaje', payload); // Emite a todos!
+        client.brodcast.emit('nuevo-mensaje', payload);//emite a todos menos al que lo emitio
+    });
   });

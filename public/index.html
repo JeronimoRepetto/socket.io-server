@@ -28,6 +28,10 @@
         client.on('mensaje', function(payload){
             console.log('Escuchando: ', payload);
         });
+
+        client.on('nuevo-mensaje', function(payload){
+            console.log('Escuchando: ', payload);
+        });
     </script>
 </body>
 </html>
