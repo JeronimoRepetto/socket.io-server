@@ -23,7 +23,12 @@
             console.log('Conexion perdida')
         });
 
-        client.emit('mensaje',{nombre: 'Jeronimo'})
+        client.on( 'active-bands', function(bands){
+            console.clear();
+            console.table(bands);
+        });
+
+        //client.emit('mensaje',{nombre: 'Jeronimo'})
 
         client.on('mensaje', function(payload){
             console.log('Escuchando: ', payload);
