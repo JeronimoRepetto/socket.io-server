@@ -1,7 +1,5 @@
-const { Console } = require('console');
 const express = require('express');
 const path = require('path');
-const { isModuleNamespaceObject } = require('util/types');
 require('dotenv').config();
 
 // App de Express

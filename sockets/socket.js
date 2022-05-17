@@ -25,19 +25,23 @@ io.on('connection', client => {
     //  });
 
     client.on('vote-band', (payload) => {
+        console.log(payload);
         bands.voteBand(payload.id);
-        io.emit('active-band', bands.getBands());
+        io.emit('active-bands', (bands.getBands()));
     });
 
     client.on('add-band', (payload) => {
-        bands.addBand(new Band.addBand(payload.name));
-        io.emit('active-band', bands.getBands());
+        console.log(payload);
+        newBand = new Band(payload.name);
+        bands.addBand(newBand);
+        io.emit('active-bands', (bands.getBands()));
     });
 
 
     client.on('delete-band', (payload) => {
+        console.log(payload);
         bands.deleteBand(payload.id);
-        io.emit('active-band', bands.getBands());
+        io.emit('active-bands', (bands.getBands()));
     });
 
     // client.on('emitir-mensaje', (payload) => {

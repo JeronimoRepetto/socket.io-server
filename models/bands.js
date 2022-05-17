@@ -1,4 +1,4 @@
-
+const Band = require('../models/band.js');
 
 
 class Bands {
@@ -11,6 +11,7 @@ class Bands {
     }
 
     getBands(){
+        console.log(this.bands);
         return this.bands;
     }
 
@@ -22,10 +23,15 @@ class Bands {
     voteBand( id = '' ){
         this.bands = this.bands.map( band => {
             if( band.id === id ){
+                console.log(band.name);
                 band.votes++;
+                console.log(band.votes);
+                return band;
+            }else{
                 return band;
             }
         } )
+        console.log(this.bands);
     }
 
 }
